@@ -1,26 +1,16 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import laravel from 'laravel-vite-plugin'
+import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [react()],
-  root: 'resources',
-  build: {
-    outDir: '../public/build',
-    emptyOutDir: true,
-    manifest: true,
-    rollupOptions: {
-      input: 'resources/js/main.tsx',
-    },
-  },
-  server: {
-    host: 'localhost',
-    port: 3000,
-    strictPort: true,
-    hmr: {
-      host: 'localhost',
-    },
-  },
+  plugins: [
+    laravel({
+      input: ['resources/css/app.css', 'resources/js/main.tsx'],
+      refresh: true,
+    }),
+    react(),
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'resources/js'),
