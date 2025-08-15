@@ -134,7 +134,7 @@ php artisan config:clear
 php artisan route:clear
 ```
 
-### Frontend Commands (when setup)
+### Frontend Commands
 ```bash
 # Install dependencies
 npm install
